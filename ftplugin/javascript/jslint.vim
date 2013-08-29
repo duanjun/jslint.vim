@@ -46,6 +46,11 @@ endif
 if !exists(":JSLintUpdate")
   command JSLintUpdate :call s:JSLintUpdate()
 endif
+
+if !exists(":JSLintClear")
+  command JSLintClear :call s:JSLintClear()
+endif
+
 if !exists(":JSLintToggle")
   command JSLintToggle exec ":let b:jslint_disabled = exists('b:jslint_disabled') ? b:jslint_disabled ? 0 : 1 : 1" |
     \                  echo 'JSLint ' . ['enabled', 'disabled'][b:jslint_disabled] . '.'
@@ -56,6 +61,7 @@ endif
 "noremap <buffer><silent> u u:JSLintUpdate<CR>
 "noremap <buffer><silent> <C-R> <C-R>:JSLintUpdate<CR>
 noremap <silent><F4> :JSLintUpdate<CR>
+noremap <silent><F5> :JSLintClear<CR>
 " Set up command and parameters
 if has("win32")
   let s:runjslint_ext = 'js'
