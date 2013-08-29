@@ -17,8 +17,8 @@ let s:install_dir = expand('<sfile>:p:h')
 
 au BufLeave <buffer> call s:JSLintClear()
 
-au BufEnter <buffer> call s:JSLint()
-au InsertLeave <buffer> call s:JSLint()
+"au BufEnter <buffer> call s:JSLint()
+"au InsertLeave <buffer> call s:JSLint()
 "au InsertEnter <buffer> call s:JSLint()
 au BufWritePost <buffer> call s:JSLint()
 
@@ -51,11 +51,11 @@ if !exists(":JSLintToggle")
     \                  echo 'JSLint ' . ['enabled', 'disabled'][b:jslint_disabled] . '.'
 endif
 
-noremap <buffer><silent> dd dd:JSLintUpdate<CR>
-noremap <buffer><silent> dw dw:JSLintUpdate<CR>
-noremap <buffer><silent> u u:JSLintUpdate<CR>
-noremap <buffer><silent> <C-R> <C-R>:JSLintUpdate<CR>
-
+"noremap <buffer><silent> dd dd:JSLintUpdate<CR>
+"noremap <buffer><silent> dw dw:JSLintUpdate<CR>
+"noremap <buffer><silent> u u:JSLintUpdate<CR>
+"noremap <buffer><silent> <C-R> <C-R>:JSLintUpdate<CR>
+noremap <silent><F4> :JSLintUpdate<CR>
 " Set up command and parameters
 if has("win32")
   let s:runjslint_ext = 'js'
@@ -304,4 +304,3 @@ if !exists("*s:ActivateJSLintQuickFixWindow")
         endif
     endfunction
 endif
-
